@@ -63,7 +63,7 @@ if(output!="" || history!=""){
     history= history+output;
     if(this.id=="="){
         var result =eval (history);
-        printoutput(result);
+        printOutput(result);
         printHistory("");
     }
 
@@ -77,11 +77,11 @@ if(output!="" || history!=""){
     });
 }
 
-var number = document.getElementByClassName("number");
+var number = document.getElementsByClassName("number");
 for(var i = 0;i<number.length; i++){
-    number[i].addEveentListener('click',function(){
+    number[i].addEventListener('click',function(){
         var output = reverseNumberFormat(getOutput());
-        if(output!=NaN){ //if output is a number
+        if(!isNaN(output)){ //if output is a number
             output=output+this.id;
             printOutput(output);
         }
